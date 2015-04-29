@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<style type="text/css">
+	#preview{
+		width: 200px;
+		border:1px solid #000;
+		border-radius: 3px;
+	}
+	li{
+		list-style-type: none;
+		background-color: blue;
+		line-height: 20px;
+		margin: 5px;
+	}
+	#txt{
+		width: 196px;
+		border-radius: 3px;
+	}
+	</style>
+	<script type="text/javascript">
+	function commit(){
+		var txt = document.getElementById('txt');
+		var txt_value = txt.value;
+		var preview = document.getElementById('preview');
+
+		/*添加评论三部曲*/
+		var li = document.createElement('li'); /*创建一个新的元素li*/
+		li.innerHTML = txt.value; /*给li添加内容*/
+		preview.appendChild(li); /*把创建好的li添加到评论容器中*/
+
+		console.log(txt_value);
+    }
+	</script>
+</head>
+<body>
+<div style="width:202px;background-color:green;border:1px solid yellow">
+	<div id="preview">
+		<li>评论1</li>
+		<li>评论2</li>
+	</div>
+	<textarea id="txt"></textarea>
+	<input type="button" value="提交评论" onclick="commit()" />
+</div>
+</body>
+</html>
