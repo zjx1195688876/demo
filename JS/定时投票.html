@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	#con{
+		width: 200px;
+		height: 300px;
+		background-color: rgba(6,6,6,0.3);
+		border-radius: 5px 5px 0 0;
+		text-align: center;
+	}
+	#vote{
+		width: 200px;
+		height: 25px;
+		background-color: rgba(6,6,6,0.5);
+		border-radius: 0 0 5px 5px;
+	}
+	input{
+		width: 50px;
+		height: 20px;
+		margin-top: 2px;
+		margin-left: 20px;
+	}
+	.num{
+		font-size: 12px;
+		float: right;
+		line-height: 25px;
+		margin-right: 20px;
+	}
+    </style>
+    <script type="text/javascript">
+    function add_vote(obj){
+    	var vote_num =document.getElementById('vote_num');
+        vote_num.innerHTML = parseInt(vote_num.innerHTML)+1;
+        disabled(obj); //注意括号内的obj用来传参给disabled()函数
+    }
+    function disabled(obj){
+    	obj.disabled = true;
+    	setTimeout(function(){obj.disabled = false},10000);
+    }
+    </script>
+</head>
+<body>
+	<div id="con">投票内容</div>
+	<div id="vote">
+		<input type="button" value="投票" onclick="add_vote(this)"/>
+		<span class="num">总票数：<span id="vote_num">0</span></span>
+	</div>
+</body>
+</html>
