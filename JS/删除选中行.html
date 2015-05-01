@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	li{
+		display: block;
+		line-height: 30px;
+	}
+	input{
+		display: none;
+		height: 20px;
+	}
+	li:hover input{
+		display: inline-block;
+	}
+	</style>
+	<script type="text/javascript">
+	function del(obj){
+		var del = obj.parentNode; //选中的这行li
+		del.parentNode.removeChild(del); //删除这行li的   父节点的子节点[还是这行li]
+		console.log(obj);
+		console.log(del);
+		console.log(del.parentNode);
+	}
+	</script>
+</head>
+<body>
+	<li>内容1<input type="button" value="删除" onclick="del(this)"/></li>
+	<li>内容2<input type="button" value="删除" onclick="del(this)"/></li>
+	<li>内容3<input type="button" value="删除" onclick="del(this)"/></li>
+	<li>内容4<input type="button" value="删除" onclick="del(this)"/></li>
+	<li>内容5<input type="button" value="删除" onclick="del(this)"/></li>
+</body>
+</html>
