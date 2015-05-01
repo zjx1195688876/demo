@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	window.onload = function(){
+		var txt = document.getElementById('txt');
+		var num = document.getElementById('num');
+		txt.onfocus = function(){
+			this.style.height = '50px';
+		}
+		txt.onblur = function(){
+			this.style.height = '20px';
+		}
+		txt.onkeyup = function(){
+			num.innerHTML = this.value.length;
+			console.log(this);
+			console.log(this.value);
+			console.log(this.value.length);
+		}
+	}
+	</script>
+</head>
+<body>
+	<textarea id="txt"></textarea>
+	<p>输入框中的字数:<span id="num">0</span></p>
+</body>
+</html>
