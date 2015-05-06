@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑";
+		}
+		#tags{
+			margin: 20px auto;
+			padding: 10px 0 10px 10px;
+			width: 210px;
+			background: #c6c6c7;
+		}
+		#tags ul{
+			width: 210px;
+			height: 280px;
+		}
+		#tags li{
+			width: 60px;
+			line-height: 60px;
+			background: #29292c;
+			list-style: none;
+			color: #fff;
+			float: left;
+			text-align: center;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+		#tags .active_li{
+			background: #fff;
+			color: #000;
+		}
+		#tags_con{
+			width: 200px;
+			padding-bottom:10px;
+			background: #e1e2e5;
+			font-size: 14px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oTags = document.getElementById('tags');
+		var oLi = oTags.getElementsByTagName('li');
+		var oDiv = document.getElementById('tags_con');
+		var oCon = [
+			"这是一个一月份的活动，我们做了很多有趣的事情…",
+			"这是一个二月份的活动，我们做了很多有趣的事情…",
+			"这是一个三月份的活动，我们做了很多有趣的事情…",
+			"这是一个四月份的活动，我们做了很多有趣的事情…",
+			"这是一个五月份的活动，我们做了很多有趣的事情…",
+			"这是一个六月份的活动，我们做了很多有趣的事情…",
+			"这是一个七月份的活动，我们做了很多有趣的事情…",
+			"这是一个八月份的活动，我们做了很多有趣的事情…",
+			"这是一个九月份的活动，我们做了很多有趣的事情…",
+			"这是一个十月份的活动，我们做了很多有趣的事情…",
+			"这是一个十一月份的活动，我们做了很多有趣的事情…",
+			"这是一个十二月份的活动，我们做了很多有趣的事情…"
+		];
+
+		for( var i = 0,length = oLi.length;i < length;i++){
+			oLi[i].index = i;
+			oLi[i].onmouseover = function(){
+				for(var i = 0,length = oLi.length;i < length;i++){
+					oLi[i].className = "";
+					oDiv.innerHTML = "111";
+			    };
+				this.className = "active_li";
+				oDiv.innerHTML = "这是第"+(this.index+1)+"月的重要活动："+oCon[this.index];
+			}
+		};
+	}
+	</script>
+</head>
+<body>
+	<div id="tags">
+		<ul>
+			<li class="active_li">1月</li>
+			<li>2月</li>
+			<li>3月</li>
+			<li>4月</li>
+			<li>5月</li>
+			<li>6月</li>
+			<li>7月</li>
+			<li>8月</li>
+			<li>9月</li>
+			<li>10月</li>
+			<li>11月</li>
+			<li>12月</li>
+		</ul>
+		<div id="tags_con">这是第1月的重要活动：这是一个一月份的活动，我们做了很多有趣的事情…</div>
+	</div>
+</body>
+</html>
