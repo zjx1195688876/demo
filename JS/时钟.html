@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css" media="screen">
+		#time{
+			width: 200px;
+			height: 50px;
+			font-family: "微软雅黑";
+			font-size: 24px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+
+		function showTime(){
+			var Time = document.getElementById('time');
+			var str;
+			var date = new Date();
+			var Hour = date.getHours();
+			var Minutes = date.getMinutes();
+			var Second = date.getSeconds();
+
+			function double(n){
+				if(n < 10){
+					n = "0" + n;
+				}
+				else{
+					n = "" + n ;
+				}
+				return n;
+			}
+
+			function show(){
+				Time.innerHTML = double(Hour) + ":" + double(Minutes) + ":" + double(Second);
+			}
+			show();
+	    }
+	    showTime();
+		setInterval(showTime,1000);
+	}
+	</script>
+</head>
+<body>
+	<div id="time">sss</div>
+</body>
+</html>
