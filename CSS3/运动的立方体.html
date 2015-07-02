@@ -18,6 +18,7 @@
 			left: 50%;
 			margin: -200px;
 			perspective:1000px;
+			-webkit-perspective: 1000px;
 			cursor: pointer;
 		}
 		.demo .box{
@@ -25,7 +26,10 @@
 			height: 100%;
 			position: absolute;
 			transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
 			animation: rotate 5s 7s linear infinite both;
+			-webkit-animation: rotate 5s 7s linear infinite both;
 		}
 		.demo .box>div{
 			width: 100%;
@@ -33,7 +37,74 @@
 			position: absolute;
 			box-sizing: border-box;
 			border: 2px solid #999;
-			transition:1s linear;
+			transition: 1s linear;
+			-webkit-transition: 1s linear;
+		}
+		.demo .box .front{
+			animation: front 1s 1s linear both;
+			-webkit-animation: front 1s 1s linear both;
+		}
+		.demo .box .back{
+			animation: back 1s 2s linear both;
+			-webkit-animation: back 1s 2s linear both;
+		}
+		.demo .box .top{
+			animation: top 1s 3s linear both;
+			-webkit-animation: top 1s 3s linear both;
+		}
+		.demo .box .bottom{
+			animation: bottom 1s 4s linear both;
+			-webkit-animation: bottom 1s 4s linear both;
+		}
+		.demo .box .left{
+			animation: left 1s 5s linear both;
+			-webkit-animation: left 1s 5s linear both;
+		}
+		.demo .box .right{
+			animation: right 1s 6s linear both;
+			-webkit-animation: right 1s 6s linear both;
+		}
+		@keyframes rotate{
+			100%{transform: rotate3d(1,1,1,360deg);}
+		}
+		@-webkit-keyframes rotate{
+			100%{-webkit-transform: rotate3d(1,1,1,360deg);}
+		}
+		@keyframes front{
+			100%{transform: rotateX(-90deg) translateZ(200px);}
+		}
+		@-webkit-keyframes front{
+			100%{-webkit-transform: rotateX(-90deg) translateZ(200px);}
+		}
+		@keyframes back{
+			100%{transform: rotateX(90deg) translateZ(200px);}
+		}
+		@-webkit-keyframes back{
+			100%{-webkit-transform: rotateX(90deg) translateZ(200px);}
+		}
+		@keyframes top{
+			100%{transform: translateZ(200px);}
+		}
+		@-webkit-keyframes top{
+			100%{-webkit-transform: translateZ(200px);}
+		}
+		@keyframes bottom{
+			100%{transform:rotateY(180deg) translateZ(200px);}
+		}
+		@-webkit-keyframes bottom{
+			100%{-webkit-transform:rotateY(180deg) translateZ(200px);}
+		}
+		@keyframes left{
+			100%{transform: rotateY(-90deg) translateZ(200px);}
+		}
+		@-webkit-keyframes left{
+			100%{-webkit-transform: rotateY(-90deg) translateZ(200px);}
+		}
+		@keyframes right{
+			100%{transform: rotateY(90deg) translateZ(200px);}
+		}
+		@-webkit-keyframes right{
+			100%{-webkit-transform: rotateY(90deg) translateZ(200px);}
 		}
 		.demo:hover .box .front{
 			background-color: #f65711 ;
@@ -52,45 +123,6 @@
 		}
 		.demo:hover .box .right{
 			background-color: #f611e3;
-		}
-		.demo .box .front{
-			animation: front 1s 1s linear both;
-		}
-		.demo .box .back{
-			animation: back 1s 2s linear both;
-		}
-		.demo .box .top{
-			animation: top 1s 3s linear both;
-		}
-		.demo .box .bottom{
-			animation: bottom 1s 4s linear both;
-		}
-		.demo .box .left{
-			animation: left 1s 5s linear both;
-		}
-		.demo .box .right{
-			animation: right 1s 6s linear both;
-		}
-		@keyframes rotate{
-			100%{transform:rotate3d(1,1,1,360deg);}
-		}
-		@keyframes front{
-			100%{transform: rotateX(-90deg) translateZ(200px);}
-		}
-		@keyframes back{
-			100%{transform: rotateX(90deg) translateZ(200px);}
-		}
-		@keyframes top{
-			100%{transform: translateZ(200px);}
-		}
-		@keyframes bottom{
-			100%{transform:rotateY(180deg) translateZ(200px);}
-		}
-		@keyframes left{
-			100%{transform: rotateY(-90deg) translateZ(200px);}
-		}
-		@keyframes right{
-			100%{transform: rotateY(90deg) translateZ(200px);}
 		}
 	</style>
 </head>
