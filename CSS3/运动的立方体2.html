@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>运动的立方体</title>
+	<meta name="keywords" content="CSS3">
+
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.demo{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -200px;
+			perspective:1000px;
+			-webkit-perspective: 1000px;
+			-ms-perspective: 1000px;
+			cursor: pointer;
+		}
+		.demo .box{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			animation: rotate 10s 0s linear infinite both;
+			-webkit-animation: rotate 10s 0s linear infinite both;
+		}
+		.demo .box>div{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			box-sizing: border-box;
+			border: 2px solid #999;
+			transition: 1s linear;
+			-webkit-transition: 1s linear;
+		}
+		@keyframes rotate{
+			100%{transform: rotate3d(1,1,1,360deg);
+				-ms-transform: rotate3d(1,1,1,360deg);;
+			}
+		}
+		@-webkit-keyframes rotate{
+			100%{-webkit-transform: rotate3d(1,1,1,360deg);
+				-ms-transform: rotate3d(1,1,1,360deg);;
+			}
+		}
+		.demo .box .front{
+			transform: rotateX(-90deg) translateZ(200px);
+			-webkit-transform: rotateX(-90deg) translateZ(200px);
+			-ms-transform: rotateX(-90deg) translateZ(200px);;
+			background-color: #f65711 ;
+		}
+		.demo .box .back{
+			transform: rotateX(90deg) translateZ(200px);
+			-webkit-transform: rotateX(90deg) translateZ(200px);
+			-ms-transform: rotateX(90deg) translateZ(200px);
+			background-color: #f6c811;
+		}
+		.demo .box .top{
+			transform: translateZ(200px);
+			-webkit-transform: translateZ(200px);
+			-ms-transform: translateZ(200px);
+			background-color: #bef611;
+		}
+		.demo .box .bottom{
+			transform:rotateY(180deg) translateZ(200px);
+			-webkit-transform:rotateY(180deg) translateZ(200px);
+			-ms-transform: rotateY(180deg) translateZ(200px);
+			background-color: #11f66d;
+		}
+		.demo .box .left{
+			transform: rotateY(-90deg) translateZ(200px);
+			-webkit-transform: rotateY(-90deg) translateZ(200px);
+			-ms-transform: rotateY(-90deg) translateZ(200px);
+			background-color: #11b8f6;
+		}
+		.demo .box .right{
+			transform: rotateY(90deg) translateZ(200px);
+			-webkit-transform: rotateY(90deg) translateZ(200px);
+			-ms-transform: rotateY(90deg) translateZ(200px);
+			background-color: #f611e3;
+		}
+		.demo:hover .box{
+			animation-play-state: paused;
+			-webkit-animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo">
+		<div class="box">
+			<div class="front"></div>
+			<div class="back"></div>
+			<div class="top"></div>
+			<div class="bottom"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+	</div>
+</body>
+</html>
