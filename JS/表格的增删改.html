@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>backstage</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑";
+		}
+		.m-header{
+			height:50px;
+			background-color: #1096f3;
+		}
+		.m-header .header{
+			width:1200px;
+			height: 50px;
+			margin: 0 auto;
+		}
+		.m-header .header h1{
+			float: left;
+			font-size: 22px;
+			line-height: 50px;
+			font-weight: normal;
+			color: #fff;
+			text-shadow: 2px 2px #999;
+		}
+		.m-header .header input,.m-add input{
+			float: right;
+			border: none;
+			width: 100px;
+			height:30px;
+			border-radius: 3px;
+			margin-top: 10px;
+			background-color: #0b80d1;
+			cursor: pointer;
+			color: #fff;
+		}
+		.m-header .header input:hover,.m-add input:hover{
+			background-color: #086cb1;
+		}
+		.m-table{
+			margin: 30px auto;
+			width: 1000px;
+		}
+		.m-table table{
+			border-spacing: 0;
+			width: 1000px;
+			border-collapse: separate;
+			border: 1px solid #eed6c6;
+		}
+		.m-table table th,td{
+			height: 30px;
+			font-size: 12px;
+			border: 1px solid #fff;
+			cursor: pointer;
+		}
+		.m-table table th{
+			background-color: #ffefa9;
+			color: #8c3318;
+		}
+		.m-table table td{
+			text-align: center;
+			background-color: #fff9e2;
+		}
+		.m-table table td input{
+			outline: none;
+			border: none;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: none;
+		}
+		.m-table table td .changeTd{
+			background-color: #fff;
+		}
+		.m-table a{
+			display: block;
+			margin: 0 auto;
+			border: 1px solid #f7df76;
+			width: 45px;
+			height: 20px;
+			border-radius: 3px;
+			line-height: 20px;
+			text-decoration: none;
+			color: #8c3318;
+			background-color: #ffefa9;
+		}
+		.m-table a:hover{
+			background-color: #f59a38;
+		}
+		.m-add{
+			margin: 0 auto;
+			width: 1000px;
+			height: 40px;
+		}
+		.m-add input{
+			margin-left: 20px;
+		}
+		#m-mask{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.3);
+			z-index: 99;
+			display: none;
+		}
+		#m-mask .addFrame{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -205px;
+			margin-top: -115px;
+			padding: 30px;
+			width: 350px;
+			height: 170px;
+			background-color: #fff;
+		}
+		#m-mask .input,#m-mask input[type=submit]{
+			width: 350px;
+			height: 40px;
+			border-radius: 3px;
+			margin-bottom: 30px;
+			outline: none;
+			background: rgba(238,160,38,0.6);
+		}
+		#m-mask .input label{
+			margin-left: 10px;
+			line-height: 40px;
+			font-size: 14px;
+			font-weight: bold;
+			color: #000;
+		}
+		#m-mask .input input{
+			width: 240px;
+			height: 38px;
+			padding-left: 20px;
+			border: none;
+			outline: none;
+			font-size: 14px;
+			font-weight: bold;
+			color: #000;
+			background: none;
+		}
+		#m-mask input[type=submit]{
+			background-color: #ee7b26;
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			cursor: pointer;
+			border: none;
+		}
+		#m-mask input[type=submit]:hover{
+			background-color: #d46818;
+		}
+
+		/*table1*/
+		.table1 th{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="m-mask">
+		<div class="addFrame">
+			<div class="input">
+				<label for="lockID">锁ID</label>
+				<input type="text" name="lockID" id="lockID" maxlength="20" />
+			</div>
+			<div class="input">
+				<label for="lockUUID">锁外部ID</label>
+				<input type="text" name="lockUUID" id="lockUUID" maxlength="20" />
+			</div>
+			<input type="submit" value="确 定" onclick="closeMask()" />
+		</div>
+	</div>
+
+	<div class="m-header">
+		<div class="header">
+			<h1>定位管理后台</h1>
+			<input type="button" name="signOut" value="退 出" />
+		</div>
+	</div>
+
+	<div class="m-table table1">
+		<table>
+			<thead>
+				<th>锁ID</th>
+				<th>锁外部ID</th>
+				<th>查询</th>
+				<th>修改</th>
+				<th>删除</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" value="1" readonly></td>
+					<td><input type="text" value="23" readonly></td>
+					<td><a href="#">查询</a></td>
+					<td><a href="#" onclick="change(this)">修改</a></td>
+					<td><a href="#" onclick="del(this)">删除</a></td>
+				</tr>
+				<tr>
+					<td><input type="text" value="2" readonly></td>
+					<td><input type="text" value="42" readonly></td>
+					<td><a href="#">查询</a></td>
+					<td><a href="#" onclick="change(this)">修改</a></td>
+					<td><a href="#" onclick="del(this)">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="m-add">
+		<input type="button" name="add" value="确 定 修 改" onclick="confirmChange()">
+		<input type="button" name="add" value="增 加" onclick="add()">
+	</div>
+
+	<script type="text/javascript">
+	
+		//删除函数
+		function del(e){
+			var del = e.parentNode.parentNode;
+			del.parentNode.removeChild(del);
+		}
+		//修改函数
+		function change(e){
+			var Tr = e.parentNode.parentNode;
+			// console.log(Tr);
+			var Tds = Tr.getElementsByTagName('td');
+			Tds[0].firstChild.readOnly = false;
+			Tds[1].firstChild.readOnly = false;
+			Tds[0].firstChild.className = "changeTd";
+			Tds[1].firstChild.className = "changeTd";
+		}
+		//确认修改
+		function confirmChange(){
+			var Table = document.getElementsByTagName('table')[0];
+			var Tbody = Table.getElementsByTagName('tbody')[0];
+			var Tds = Tbody.getElementsByTagName('td');
+			for(var i = 0 ,length = Tds.length;i < length;i++){
+				Tds[i].firstChild.readOnly = true;
+				Tds[i].firstChild.className = "";
+			}
+		}
+		//增加弹出框函数
+		function add(){
+			var Mask = document.getElementById('m-mask');
+			var lockID = document.getElementById('lockID');
+			var lockUUID = document.getElementById('lockUUID');
+			lockID.value = "";
+			lockUUID.value = "";
+			Mask.style.display = "block";
+		}
+		//关闭弹窗函数
+		function closeMask(){
+			var Mask = document.getElementById('m-mask');
+			var lockID = document.getElementById('lockID');
+			var lockID_val = lockID.value;
+			var lockUUID = document.getElementById('lockUUID');
+			var lockUUID_val = lockUUID.value;
+			var Table = document.getElementsByTagName('table')[0];
+			var Tbody = Table.getElementsByTagName('tbody')[0];
+			var Tr = "<tr>"+"<td>"+"<input type='text' readonly value="+lockID_val+">"+"</td>"+"<td>"+"<input type='text' readonly value="+lockUUID_val+">"+"</td>"+"<td><a href='#'>查询</a></td>"+"<td><a href='#' onclick='change(this)'>修改</a></td>"+"<td><a href='#' onclick='del(this)'>删除</a></td>"+"</tr>";
+			Tbody.innerHTML += Tr;
+			Mask.style.display = "none";
+		}
+
+	</script>
+
+
+</body>
+</html>
